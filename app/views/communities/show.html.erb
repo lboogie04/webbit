@@ -1,0 +1,15 @@
+<% content_for :community_label, "w/#{@community.name}" %>
+
+<%= render 'community_header', community: @community %>
+
+<% content_for :primary_content do %>
+  <% @community.submissions.each do |community| %>
+    <%= render 'submissions/submission', submission: community %>
+  <% end %>
+<% end %>
+
+<% content_for :secondary_content do %>
+  <%= render 'sidebar', community: @community %>
+<% end %>
+
+<%= render 'basic_layout' %>
